@@ -1,0 +1,6 @@
+<h1>{{ name.name }}</h1>
+<p>{{ name.phone_number }}</p>
+
+<input type="button" onclick='window.location.href="{% url "update" name.id %}";' value="Update"/>
+<input type="button" onclick='window.location.href="{% url "delete" name.id %}";' value="Delete"/>
+<input type="button" onclick='window.location.href="{% url "home" %}";' value="Home"/>

@@ -1,0 +1,23 @@
+<h1>Phonebook</h1>
+
+<input type="button" onclick='window.location.href="{% url "create" %}";' value="New Contact"/>
+<p></p>
+
+<table border=1>
+    <tr>
+        <td>Name</td>
+        <td>Number</td>
+        <td>Delete</td>
+    </tr>
+{% if names %}
+    {% for name in names %}
+        <tr>
+            <td><a href="{% url 'read' name.id %}">{{ name.name }}</a></td>
+            <td>{{ name.phone_number }}</td>
+            <td><a href="{% url 'delete' name.id %}">x</a></td>
+        </tr>
+    {% endfor %}
+{% else %}
+        <tr><td colspan='3'>No entry</td><tr>
+{% endif %}
+</table>
